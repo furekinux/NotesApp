@@ -1,0 +1,103 @@
+@import url(variables.css);
+
+body {
+    display: none; /* Oculta el contenido por defecto */
+}
+
+.mensaje {
+    display: none; /* Oculta el mensaje por defecto */
+    text-align: center;
+    padding-top: 20%;
+    color: black;
+}
+
+/* Styles for mobile devices */
+@media only screen and (max-width: 980px) {
+    body {
+        display: block; /* Muestra el contenido en móviles */
+    }
+
+    header {
+        gap: 45vw;
+    }
+
+    /* Background images for buttons */
+    #view {
+        background: url(../storage/img/visibility.png);
+    }
+    #save {
+        background: url(../storage/img/save.png);
+    }
+    #back {
+        background: url(../storage/img/chevron_left.png);
+    }
+
+    /* Button styles */
+    #view, #save, #back {
+        background-color: var(--button-1);
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        width: 12vi;
+        height: 12vi;
+        border-radius: 3vi;
+        transition: background-color 1s;
+    }
+
+    #view:hover, #save:hover, #back:hover {
+        background-color: #444444;
+    }
+
+    #noteInputSpace {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 17vh 5vw 5vh 5vw;
+    }
+
+    input, textarea {
+        background: none;
+        border: none;
+        overflow-wrap: break-word; /* Changed to 'overflow-wrap' for better compatibility */
+        resize: none;
+        color: var(--color-1);
+        outline: none;
+    }
+
+    #noteTitle {
+        font-size: 10vi;
+        margin-bottom: 3vh;
+    }
+
+    #noteContent {
+        font-size: 5vi;
+    }
+
+    ::placeholder {
+        color: var(--color-3);
+    }
+}
+
+/* Styles for desktop devices */
+@media only screen and (min-width: 981px) {
+    body {
+        overflow: hidden;
+        display: block;
+    }
+
+    .mensaje {
+        display: block; /* Muestra el mensaje en pantallas grandes */
+    }
+
+    h1 {
+        font-size: 5vi;
+        color: #444444;
+    }
+    p{
+        color: #444444;
+    }
+
+    body .contenido {
+        display: none;
+    }
+}

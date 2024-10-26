@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <link rel="shortcut icon" href="./storage/img/logo.png" type="image/png">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="mensaje">
+        <h1>Esta página solo está disponible en dispositivos móviles.</h1>
+        <p>Por favor, accede desde tu teléfono o tableta.</p>
+    </div>
+
+    <div class="contenido">
+        <div class="popup-overlay" id="popupOverlay">
+
+            <div class="popup" id="popup">
+                <div class="popup-content">
+                    <p>Designed by - Divya on Figma</p>
+                    <p>Redesigned by - Daniela Forero</p>
+                    <p>Illustrations - I don't know</p>
+                    <p>Icons - I don't know neither</p>
+                    <p>Font - Nunito</p>
+                </div>
+                <p id="madeBy">Made by @Furekinux</p>
+            </div>
+        
+        </div>
+
+        <header>
+            <h1>Notes</h1>
+            <div class="button-container">
+                <button id="search"></button>
+                <button id="info" onclick="toggleInfo()"></button>
+            </div>
+        </header>
+
+        <section id="note-container">
+            <div id="default">
+                <img id="defaultimg" src="./storage/img/rafiki.png" alt="defaultimg">
+                <p>Create your first note !</p>
+            </div>
+        </section>
+
+        <footer>
+            <button id="newNote" onclick="newNotePage()"></button>
+        </footer>
+    </div>
+</body>
+<script src="./js/script.js"></script>
+</html>

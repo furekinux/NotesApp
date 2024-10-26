@@ -1,0 +1,102 @@
+@import url(variables.css);
+
+body {
+    display: none;
+}
+
+.mensaje {
+    display: none;
+    text-align: center;
+    padding-top: 20%;
+    color: black;
+}
+
+@media only screen and (max-width: 980px) {
+    body {
+        display: block;
+    }
+
+    header {
+        gap: 63vw;
+    }
+
+    .button-container {
+        display: flex;
+        width: auto;
+    }
+
+    #edit {
+        background: url(../storage/img/mode.png);
+    }
+    #back {
+        background: url(../storage/img/chevron_left.png);
+    }
+
+    #edit, #back {
+        background-color: var(--button-1);
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        width: 12vi;
+        height: 12vi;
+        border-radius: 3vi;
+        transition: background-color 1s;
+    }
+
+    #edit:hover, #back:hover {
+        background-color: #444444;
+    }
+
+    #noteInputSpace {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 17vh 5vw 5vh 5vw;
+    }
+
+    input, textarea {
+        background: none;
+        border: none;
+        overflow-wrap: break-word;
+        resize: none;
+        color: var(--color-3);
+        outline: none;
+    }
+
+
+    #noteTitle {
+        font-size: 10vi;
+        margin-bottom: 3vh;
+    }
+
+    #noteContent {
+        font-size: 5vi;
+    }
+
+    ::placeholder {
+        color: var(--color-3);
+    }
+}
+
+@media only screen and (min-width: 981px) {
+    body {
+        overflow: hidden;
+        display: block;
+    }
+
+    .mensaje {
+        display: block;
+    }
+
+    h1 {
+        font-size: 5vi;
+        color: #444444;
+    }
+    p{
+        color: #444444;
+    }
+
+    body .contenido {
+        display: none;
+    }
+}

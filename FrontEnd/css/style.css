@@ -1,0 +1,198 @@
+@import url(variables.css);
+
+.mensaje {
+    display: none;
+    text-align: center;
+    padding-top: 20%;
+    color: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--color-2);
+    font-family: "Nunito-Regular";
+}
+
+@media only screen and (max-width: 980px) {
+    body {
+        background: var(--background-1);
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+        overflow: scroll;
+    }
+
+    p{
+        line-height: calc(1.5vi + 5vi)
+    }
+
+    header {
+        position: fixed;
+        display: flex;
+        flex-direction: row;
+        min-width: 100%;
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 32vw;
+        height: 12vh;
+        padding-top: 4vh;
+    }
+
+    button {
+        cursor: pointer;
+        transition: background-color;
+    }
+
+    h1 {
+        color: var(--color-1);
+        font-weight: 100;
+        font-family: "Nunito-Medium";
+        font-size: 10vi;
+        line-height: calc(12.5vi)
+    }
+
+    #newNote {
+        background: url(../storage/img/add.png) no-repeat center;
+        background-color: var(--background-1);
+        border: none;
+        width: 17vi;
+        height: 17vi;
+        border-radius: 25vi;
+        box-shadow: 0vi 0vi 2.5vi black;
+        transition: background-color 1s;
+    }
+    #newNote:hover {
+        background-color: #2c2c2c;
+    }
+    #info {
+        background: url(../storage/img/info_outline.png);
+    }
+    #search {
+        background: url(../storage/img/search.png);
+    }
+    #search, #info {
+        background-color: var(--button-1);
+        background-repeat: no-repeat;
+        background-position: center;
+        border: none;
+        width: 12vi;
+        height: 12vi;
+        border-radius: 3vi;
+        transition: background-color 1s;
+    }
+    #search:hover, #info:hover {
+        background-color: #444444;
+    }
+    .button-container {
+        display: flex;
+        width: 30vw;
+        justify-content: space-between;
+    }
+    footer {
+        position: fixed;
+        display: flex;
+        top: 85vh;
+        bottom: 0;
+        min-width: 100%;
+        max-width: 100%;
+        justify-content: right;
+        align-content: center;
+        padding: 0vi 6vw;
+    }
+
+    #note-container {
+        padding-top: 14vh;
+        padding-bottom: 5vh;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 2vh;
+    }
+
+    #default {
+        display: flex;
+        width: 90%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 73vh;
+    }
+    #default p {
+        font-size: 5vi;
+    }
+    #defaultimg {
+        width: 90%;
+    }
+
+    /*POPUP!!!*/
+    .popup-overlay {
+        display: none; /* Initially hidden */
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(194, 194, 194, 0.24);
+        z-index: 99;
+        opacity: 0; /* Start hidden */
+        transition: opacity 0.4s ease; /* Transition effect */
+    }
+
+    .popup-overlay.visible {
+        display: flex; /* Show as flex when visible */
+        opacity: 1; /* Fade in */
+    }
+
+    .popup {
+        font-family: Arial, sans-serif;
+        position: absolute;
+        background: var(--background-1);;
+        padding: 7vi;
+        width: 70vw;
+        border-radius: 5vi;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .popup-content {
+        text-align: left;
+        font-size: 3.5vi;
+    }
+
+    #madeBy{
+        font-size: 3.5vi;
+        width: 100%;
+        text-align: center;
+        padding-top: 2vh;
+    }
+}
+
+@media only screen and (min-width: 981px) {
+    body {
+        overflow: hidden;
+        display: block;
+    }
+
+    .mensaje {
+        display: block;
+    }
+
+    h1 {
+        font-size: 5vi;
+        color: #444444;
+    }
+    p{
+        color: #444444;
+    }
+
+    body .contenido {
+        display: none;
+    }
+}
