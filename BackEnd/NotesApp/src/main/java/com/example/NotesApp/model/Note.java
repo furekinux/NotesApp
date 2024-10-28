@@ -1,7 +1,9 @@
 package com.example.NotesApp.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -12,8 +14,9 @@ public class Note {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_history", nullable = false)
-    private History history;
+    @JoinColumn(name = "id_user", nullable = false)
+    @JsonManagedReference
+    private User user;
 
     @Column(name = "title", nullable = false,length = 60)
     private String title;
@@ -21,11 +24,19 @@ public class Note {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "creationDate")
-    private Date creationDate;
+    @Column(name = "creation_date", updatable = false)
+    private LocalDateTime creationDate;
 
-    public Note(History history, String title, String content) {
-        this.history = history;
+    @PrePersist
+    protected void onCreate() {
+        this.creationDate = LocalDateTime.now();
+    }
+
+    public Note() {
+    }
+
+    public Note(User user, String title, String content) {
+        this.user = user;
         this.title = title;
         this.content = content;
     }
@@ -34,12 +45,12 @@ public class Note {
         return id;
     }
 
-    public History getHistory() {
-        return history;
+    public User getUser() {
+        return user;
     }
 
-    public void setHistory(History history) {
-        this.history = history;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitle() {
@@ -58,7 +69,7 @@ public class Note {
         this.content = content;
     }
 
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 

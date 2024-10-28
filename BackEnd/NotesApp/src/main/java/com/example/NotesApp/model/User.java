@@ -1,9 +1,10 @@
 package com.example.NotesApp.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -19,11 +20,21 @@ public class User {
     @Column(name = "password", nullable = false,length = 255)
     private String password;
 
-    @Column(name = "creationDate")
-    private Date creationDate;
+    @Column(name = "creation_date", updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime creationDate;
+
+    @PrePersist
+    protected void onCreate() {
+        this.creationDate = LocalDateTime.now();
+    }
 
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<History> historyList = new ArrayList<>();
+    @JsonManagedReference
+    private List<Note> noteList = new ArrayList<>();
+
+    public User() {
+    }
 
     public User(String username, String password) {
         this.username = username;
@@ -50,16 +61,16 @@ public class User {
         this.password = password;
     }
 
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public List<History> getHistoryList(){
-        return historyList;
+    public List<Note> getNoteList(){
+        return noteList;
     }
 
-    public void addToHistoryList(History history){
-        historyList.add(history);
-        history.setUser(this);
+    public void addToHistoryList(Note note){
+        noteList.add(note);
+        note.setUser(this);
     }
 }
