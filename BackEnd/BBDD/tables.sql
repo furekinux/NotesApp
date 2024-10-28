@@ -3,7 +3,7 @@ use notesApp;
 
 create table `user`(
 	id int primary key not null auto_increment,
-    username varchar(35) not null,
+    username varchar(35) not null unique,
     password varchar(255) not null,
     creationDate datetime default current_timestamp
 );
@@ -11,7 +11,7 @@ create table `user`(
 create table `history`(
 	id int primary key not null auto_increment,
     id_user int not null,
-    foreign key(id_user)references `user`(id),
+    foreign key(id_user)references `user`(id)
 );
 
 create table `note`(
